@@ -1,0 +1,64 @@
+@font-face {
+   font-family: Shabnam;
+   font-style: normal;
+   font-weight: 200;
+   src: url("/fonts/Shabnam-Thin-FD.eot");
+   src: url("/fonts/Shabnam-Thin-FD.eot?#iefix") format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/Shabnam-Thin-FD.woff2") format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/ url("/fonts/Shabnam-Thin-FD.woff") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("/fonts/Shabnam-Thin-FD.ttf")
+         format("truetype");
+}
+
+@font-face {
+   font-family: Shabnam;
+   font-style: normal;
+   font-weight: 300;
+   src: url("/fonts/Shabnam-Light-FD.eot");
+   src: url("/fonts/Shabnam-Light-FD.eot?#iefix") format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/Shabnam-Light-FD.woff2") format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/ url("/fonts/Shabnam-Light-FD.woff") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("/fonts/Shabnam-Light-FD.ttf")
+         format("truetype");
+}
+
+@font-face {
+   font-family: Shabnam;
+   font-style: normal;
+   font-weight: 400;
+   src: url("/fonts/Shabnam-FD.eot");
+   src: url("/fonts/Shabnam-FD.eot?#iefix") format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/Shabnam-FD.woff2") format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/ url("/fonts/Shabnam-FD.woff") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("/fonts/Shabnam-FD.ttf") format("truetype");
+}
+
+@font-face {
+   font-family: Shabnam;
+   font-style: normal;
+   font-weight: 500;
+   src: url("/fonts/Shabnam-Medium-FD.eot");
+   src: url("/fonts/Shabnam-Medium-FD.eot?#iefix") format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/Shabnam-Medium-FD.woff2") format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/ url("/fonts/Shabnam-Medium-FD.woff") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("/fonts/Shabnam-Medium-FD.ttf")
+         format("truetype");
+}
+
+@font-face {
+   font-family: Shabnam;
+   font-style: normal;
+   font-weight: 700;
+   src: url("/fonts/Shabnam-Bold-FD.eot");
+   src: url("/fonts/Shabnam-Bold-FD?#iefix") format("embedded-opentype"),
+      /* IE6-8 */ url("/fonts/Shabnam-Bold-FD.woff2") format("woff2"),
+      /* FF39+,Chrome36+, Opera24+*/ url("/fonts/Shabnam-Bold-FD.woff") format("woff"),
+      /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("/fonts/Shabnam-Bold-FD.ttf")
+         format("truetype");
+}
+
+body {
+   font-family: Shabnam, "san-serif";
+   font-size: 1rem;
+   font-weight: 400;
+}
