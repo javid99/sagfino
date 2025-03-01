@@ -1,11 +1,13 @@
 <template>
-   <div>
-      <NuxtPage />
-   </div>
+  <div>
+    <NuxtPage />
+  </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-   titleTemplate: "سقفینو - %s",
+  titleTemplate: "سقفینو - %s",
 });
 </script>
+
+<style></style>

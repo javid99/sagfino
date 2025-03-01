@@ -52,6 +52,16 @@ export default {
             },
             black: "#0C0C0C",
          },
+         keyframes: {
+            "loading-rotate": {
+               '0%': {
+                  transform: 'rotate(0)'
+               },
+               '100%': {
+                  transform: 'rotate(-360deg)'
+               }
+            },
+         },
       },
       container: {
          center: true,

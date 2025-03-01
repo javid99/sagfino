@@ -1,12 +1,12 @@
 <template>
-   <div class="container">
-      <p>این صفحه اصلی سایت است</p>
-   </div>
+  <div class="container">
+    <p>این صفحه اصلی سایت است</p>
+  </div>
 </template>
 
 <script lang="ts" setup>
 useHead({
-   title: "صفحه اصلی",
+  title: "صفحه اصلی",
 });
 </script>
 
