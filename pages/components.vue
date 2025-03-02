@@ -1,5 +1,6 @@
 <template>
-  <div class="container my-4">
+  <div class="container my-4 flex flex-col gap-8">
+    <!-- SECTION Button components -->
     <div class="flex flex-wrap gap-6">
       <div class="flex flex-col items-start gap-3">
         <BaseButton
@@ -563,6 +564,11 @@
           :loading="true"
         />
       </div>
+    </div>
+
+    <!-- SECTION Search box with tabs -->
+    <div class="flex flex-wrap gap-6">
+      <SearchboxTab />
     </div>
   </div>
 </template>
