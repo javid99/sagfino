@@ -570,11 +570,24 @@
     <div class="flex flex-wrap gap-6">
       <SearchboxTab :disabled="false" />
     </div>
+
+    <!-- SECTION Simple inputs -->
+    <div class="flex flex-wrap gap-6">
+      <baseInput
+        :type="inputType.text"
+        placeholder="شماره موبایل"
+        icon-right="arrow-right"
+        icon-left="arrow-square-left"
+        :disabled="false"
+        :is-invalid="false"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { Color, Size, Type, Variant } from "@/types/enums/buttonEnums";
+import { inputType } from "@/types/enums/inputEnums";
 
 useHead({
   title: "کامپوننت ها",

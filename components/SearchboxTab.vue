@@ -2,7 +2,7 @@
   <div
     id="searchbox-tab"
     :class="disabled ? '!border-neutral-Gray-5' : ''"
-    class="flex w-full flex-col gap-[10px] rounded-xl border border-neutral-Gray-7 bg-white px-7 pb-3 pt-[14px] hover:border-neutral-Gray-3 hover:bg-neutral-Gray-3"
+    class="flex w-full flex-col gap-[10px] rounded-xl border border-neutral-Gray-7 bg-white px-4 pb-2 pt-1 hover:border-neutral-Gray-3 hover:bg-neutral-Gray-3 lg:px-7 lg:pb-3 lg:pt-[14px]"
   >
     <div class="flex">
       <div
@@ -18,7 +18,7 @@
         <button
           type="button"
           :disabled="disabled"
-          class="w-full"
+          class="w-full text-sm lg:text-2xl lg:font-medium"
           :class="disabled ? 'text-neutral-Gray-5' : ''"
           @click="changeTab('rent')"
         >
@@ -38,7 +38,7 @@
         <button
           type="button"
           :disabled="disabled"
-          class="w-full"
+          class="w-full text-sm lg:text-2xl lg:font-medium"
           :class="disabled ? 'text-neutral-Gray-5' : ''"
           @click="changeTab('sell')"
         >
@@ -50,16 +50,15 @@
       <Icon
         name="my-iconsax:search-normal-1"
         mode="svg"
-        size="24"
         :style="disabled ? 'fill: #d9d9d9' : 'fill: #353535'"
-        class="custom-icon"
+        class="custom-icon size-4 lg:size-6"
       />
       <input
         type="text"
         name="search"
         id="search"
         placeholder="شهر مورد نظر را جست‌وجو کنید"
-        class="flex-1 bg-transparent text-lg focus:outline-none"
+        class="flex-1 bg-transparent text-xs focus:outline-none lg:text-lg"
         :class="
           disabled
             ? '!placeholder:text-neutral-Gray-5 !text-neutral-Gray-5'
