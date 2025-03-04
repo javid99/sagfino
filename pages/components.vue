@@ -568,7 +568,7 @@
 
     <!-- SECTION Search box with tabs -->
     <div class="flex flex-wrap gap-6">
-      <SearchboxTab />
+      <SearchboxTab :disabled="false" />
     </div>
   </div>
 </template>

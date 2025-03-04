@@ -1,38 +1,75 @@
 <template>
   <div
     id="searchbox-tab"
+    :class="disabled ? '!border-neutral-Gray-5' : ''"
     class="flex w-full flex-col gap-[10px] rounded-xl border border-neutral-Gray-7 bg-white px-7 pb-3 pt-[14px] hover:border-neutral-Gray-3 hover:bg-neutral-Gray-3"
   >
     <div class="flex">
       <div
         class="flex flex-1 justify-center border-b border-neutral-Gray-5 pb-[6px]"
-        :class="activeTab === 'rent' ? 'border-primary-default' : ''"
+        :class="
+          disabled
+            ? '!border-neutral-Gray-5'
+            : activeTab === 'rent'
+              ? 'border-primary-default'
+              : ''
+        "
       >
-        <button type="button" class="w-full" @click="changeTab('rent')">
+        <button
+          type="button"
+          :disabled="disabled"
+          class="w-full"
+          :class="disabled ? 'text-neutral-Gray-5' : ''"
+          @click="changeTab('rent')"
+        >
           اجاره
         </button>
       </div>
       <div
         class="flex flex-1 justify-center border-b border-neutral-Gray-5 pb-[6px]"
-        :class="activeTab === 'sell' ? 'border-primary-default' : ''"
+        :class="
+          disabled
+            ? '!border-neutral-Gray-5'
+            : activeTab === 'sell'
+              ? 'border-primary-default'
+              : ''
+        "
       >
-        <button type="button" class="w-full" @click="changeTab('sell')">
+        <button
+          type="button"
+          :disabled="disabled"
+          class="w-full"
+          :class="disabled ? 'text-neutral-Gray-5' : ''"
+          @click="changeTab('sell')"
+        >
           خرید
         </button>
       </div>
     </div>
     <div class="flex items-center gap-2">
-      <Icon name="my-iconsax:search-normal-1" mode="svg" size="24" />
+      <Icon
+        name="my-iconsax:search-normal-1"
+        mode="svg"
+        size="24"
+        :style="disabled ? 'fill: #d9d9d9' : 'fill: #353535'"
+        class="custom-icon"
+      />
       <input
         type="text"
         name="search"
         id="search"
         placeholder="شهر مورد نظر را جست‌وجو کنید"
-        class="flex-1 bg-transparent text-lg text-neutral-Gray-11 placeholder:text-neutral-Gray-11 focus:outline-none"
+        class="flex-1 bg-transparent text-lg focus:outline-none"
+        :class="
+          disabled
+            ? '!placeholder:text-neutral-Gray-5 !text-neutral-Gray-5'
+            : 'text-neutral-Gray-11 placeholder:text-neutral-Gray-11'
+        "
         @focusin="focusBox"
         @focusout="focusLeave"
         v-model="store.search"
         @input="completeShow = true"
+        :disabled="disabled"
       />
     </div>
     <div class="pr-8" v-show="completeShow">
@@ -52,6 +89,11 @@
 
 <script lang="ts" setup>
 import { useMyCitiesStore } from "@/stores/cities";
+
+const props = defineProps({
+  disabled: Boolean,
+});
+
 const completeShow = ref<boolean>(true);
 
 let activeTab = ref<string>("rent");
@@ -66,6 +108,9 @@ const changeTab = (tab: string): void => {
 const autoCompleted = (event: Event): void => {
   store.search = (event.currentTarget as HTMLButtonElement).innerText;
   completeShow.value = false;
+  document
+    .getElementById("searchbox-tab")
+    ?.classList.add("!border-neutral-Gray-11");
 };
 
 const focusBox = (): void => {
@@ -87,4 +132,8 @@ const focusLeave = (): void => {
 };
 </script>
 
-<style></style>
+<style scoped>
+.custom-icon * {
+  fill: inherit !important;
+}
+</style>

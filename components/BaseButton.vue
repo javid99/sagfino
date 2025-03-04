@@ -412,7 +412,7 @@ const iconClasses = computed(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .btn-icon * {
   fill: inherit !important;
 }
