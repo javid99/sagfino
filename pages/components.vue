@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-4 flex flex-col gap-8">
+  <div class="container mb-96 mt-4 flex flex-col gap-8">
     <!-- SECTION Button components -->
     <div class="flex flex-wrap gap-6">
       <div class="flex flex-col items-start gap-3">
@@ -582,6 +582,49 @@
         :is-invalid="false"
       />
     </div>
+
+    <!-- SECTION Simple select -->
+    <div class="flex">
+      <el-select
+        v-model="value"
+        class="custom-select"
+        popper-class="custom-select-dropdown"
+        placeholder="انتخاب کنید"
+        size="large"
+        style="width: 7rem"
+        placement="bottom-end"
+        clearable
+        multiple
+        :collapse-tags="true"
+        no-data-text="گزینه ای وجود ندارد"
+        @change="inputSelected = true"
+        @focus="inputSelected = false"
+        @clear="inputSelected = false"
+        :class="inputSelected ? 'selected' : ''"
+      >
+        <template #header>
+          <baseInput
+            :type="inputType.text"
+            v-model="selectSearch"
+            placeholder="جستجو"
+            :disabled="false"
+            :is-invalid="false"
+          />
+        </template>
+        <el-option
+          v-for="item in filteredItems"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+          class="group flex items-center !px-4 [&.is-hovering]:!bg-neutral-Gray-3 [&.is-selected]:!bg-primary-Tint-1 [&.is-selected]:!font-normal"
+        >
+          <span
+            class="ml-2 inline-block size-5 rounded border border-neutral-Gray-7 bg-transparent bg-cover bg-center group-[.is-selected]:border-0 group-[.is-selected]:bg-[url(./images/Checkbox.svg)]"
+          ></span>
+          <span class="text-neutral-Gray-11">{{ item.label }}</span>
+        </el-option>
+      </el-select>
+    </div>
   </div>
 </template>
 
@@ -592,6 +635,92 @@ import { inputType } from "@/types/enums/inputEnums";
 useHead({
   title: "کامپوننت ها",
 });
+const inputSelected = ref<boolean>(false);
+const value = ref("");
+const selectSearch = ref("");
+
+const options = ref<{ value: string; label: string; disabled?: boolean }[]>([
+  {
+    value: "عنوان 1",
+    label: "عنوان 1",
+  },
+  {
+    value: "عنوان 2",
+    label: "عنوان 2",
+  },
+  {
+    value: "عنوان 3",
+    label: "عنوان 3",
+  },
+  {
+    value: "عنوان 4",
+    label: "عنوان 4",
+  },
+  {
+    value: "عنوان 5",
+    label: "عنوان 5",
+  },
+]);
+
+const filteredItems = computed(() => {
+  return options.value.filter((item) =>
+    item.label.toLowerCase().includes(selectSearch.value.toLowerCase()),
+  );
+});
 </script>
 
-<style></style>
+<style>
+.custom-select .el-select__wrapper {
+  text-align: right;
+  min-height: 3rem;
+  font-size: 1rem;
+  box-shadow: none !important;
+  border: 1px solid #adadad;
+  border-radius: 0.5rem;
+}
+
+.custom-select .el-select__wrapper:hover {
+  border-color: #ededed;
+  background-color: #ededed;
+}
+
+.custom-select .el-select__wrapper.is-focused {
+  border-color: #409eff;
+  box-shadow: 0px 0px 0px 4px rgba(47, 128, 237, 0.19) !important;
+}
+
+.custom-select .el-select__placeholder {
+  color: #505050;
+}
+
+.custom-select .el-select__caret {
+  font-size: 1.25rem;
+  color: #505050;
+}
+
+.el-popper__arrow,
+.el-popper__arrow:before {
+  display: none;
+}
+
+.custom-select-dropdown {
+  min-width: 200px;
+  border-color: #409eff !important;
+  border-radius: 0.5rem;
+  box-shadow: none !important;
+}
+
+.custom-select.selected .el-select__wrapper {
+  border-color: #353535;
+  box-shadow: none !important;
+}
+
+.custom-select.selected .el-select__placeholder {
+  color: #353535;
+}
+
+.custom-select-dropdown .el-select-dropdown__header {
+  border-bottom: none;
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+</style>

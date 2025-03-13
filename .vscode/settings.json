@@ -2,5 +2,8 @@
     "cSpell.words": [
         "iconsax",
         "Shabnam"
-    ]
+    ],
+    "search.exclude": {
+        "**/node_modules": false
+    }
 }

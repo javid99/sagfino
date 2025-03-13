@@ -3,7 +3,7 @@
     class="group flex items-center gap-1 rounded-lg border px-4 py-3"
     :class="
       inputFocus
-        ? 'border-info-blue shadow-[0_0_0_3px_rgba(47,128,237,0.19)]'
+        ? '!border-info-blue shadow-[0_0_0_3px_rgba(47,128,237,0.19)]'
         : inputSelected
           ? 'border-neutral-Gray-11'
           : disabled
@@ -70,7 +70,7 @@ import type { PropType } from "vue";
 
 const inputFocus = ref<boolean>(false);
 const inputSelected = ref<boolean>(false);
-let inputValue = ref<string>("");
+const inputValue = defineModel<string>({ default: "" });
 
 const emits = defineEmits(["inputFocus"]);
 
