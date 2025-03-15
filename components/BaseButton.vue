@@ -1,7 +1,7 @@
 <template>
   <button
     :type="type"
-    class="group relative inline-flex items-center rounded-lg border border-solid font-medium"
+    class="group relative inline-flex items-center justify-center rounded-lg border border-solid font-medium"
     :class="buttonClasses"
     :disabled="disabled"
   >

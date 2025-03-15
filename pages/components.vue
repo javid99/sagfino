@@ -619,11 +619,36 @@
           class="group flex items-center !px-4 [&.is-hovering]:!bg-neutral-Gray-3 [&.is-selected]:!bg-primary-Tint-1 [&.is-selected]:!font-normal"
         >
           <span
-            class="ml-2 inline-block size-5 rounded border border-neutral-Gray-7 bg-transparent bg-cover bg-center group-[.is-selected]:border-0 group-[.is-selected]:bg-[url(./images/Checkbox.svg)]"
+            class="ml-2 inline-block size-5 rounded border border-neutral-Gray-7 bg-white bg-cover bg-center group-[.is-selected]:border-0 group-[.is-selected]:bg-[url(./images/Checkbox.svg)]"
           ></span>
           <span class="text-neutral-Gray-11">{{ item.label }}</span>
         </el-option>
+        <template #footer>
+          <div class="flex gap-2">
+            <BaseButton
+              label="حذف"
+              :variant="Variant.Outline"
+              :color="Color.Gray"
+              class="flex-1"
+              @click="clearOptions"
+              :disabled="true"
+            />
+            <BaseButton
+              label="انتخاب"
+              :variant="Variant.Outline"
+              :color="Color.Gray"
+              class="flex-1"
+              @click="selectOptions"
+              :disabled="true"
+            />
+          </div>
+        </template>
       </el-select>
+    </div>
+
+    <!-- SECTION Price selection dropdown -->
+    <div class="flex">
+      <PriceDropdown />
     </div>
   </div>
 </template>
@@ -631,12 +656,13 @@
 <script lang="ts" setup>
 import { Color, Size, Type, Variant } from "@/types/enums/buttonEnums";
 import { inputType } from "@/types/enums/inputEnums";
+import type { CheckboxValueType } from "element-plus";
 
 useHead({
   title: "کامپوننت ها",
 });
 const inputSelected = ref<boolean>(false);
-const value = ref("");
+const value = ref<CheckboxValueType[]>([]);
 const selectSearch = ref("");
 
 const options = ref<{ value: string; label: string; disabled?: boolean }[]>([
@@ -667,6 +693,19 @@ const filteredItems = computed(() => {
     item.label.toLowerCase().includes(selectSearch.value.toLowerCase()),
   );
 });
+
+const selectOptions = (val: CheckboxValueType) => {
+  if (val) {
+    value.value = options.value.map((_) => _.value);
+  } else {
+    value.value = [];
+  }
+};
+
+const clearOptions = () => {
+  value.value = [];
+  selectSearch.value = "";
+};
 </script>
 
 <style>
@@ -722,5 +761,9 @@ const filteredItems = computed(() => {
 .custom-select-dropdown .el-select-dropdown__header {
   border-bottom: none;
   padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item.is-selected:after {
+  display: none;
 }
 </style>
