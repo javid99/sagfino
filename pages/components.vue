@@ -650,6 +650,16 @@
     <div class="flex">
       <PriceDropdown />
     </div>
+
+    <!-- SECTION Area selection dropdown -->
+    <div class="flex">
+      <AreaDropdown />
+    </div>
+
+    <!-- SECTION Filter selection dropdown -->
+    <div class="flex">
+      <FilterDropdown />
+    </div>
   </div>
 </template>
 
