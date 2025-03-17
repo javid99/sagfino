@@ -33,6 +33,7 @@
     <input
       :type="type"
       :placeholder="placeholder"
+      :name="name"
       @focusin="inputFocused"
       @focusout="inputUnfocused"
       class="text-neutral-Gray-11 focus:outline-none lg:text-sm"
@@ -77,6 +78,7 @@ const emits = defineEmits(["inputFocus"]);
 const props = defineProps({
   placeholder: String,
   iconRight: String,
+  name: String,
   iconLeft: String,
   type: {
     type: String as PropType<inputType>,

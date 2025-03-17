@@ -577,6 +577,7 @@
         :type="inputType.text"
         placeholder="شماره موبایل"
         icon-right="arrow-right"
+        name="name"
         icon-left="arrow-square-left"
         :disabled="false"
         :is-invalid="false"
@@ -660,6 +661,20 @@
     <div class="flex">
       <FilterDropdown />
     </div>
+
+    <!-- SECTION Labeled Input -->
+    <LabeledInput
+      label="تیتر"
+      name="test"
+      placeholder="عنوان"
+      type="text"
+      :disabled="false"
+      :is-invalid="inputValid"
+      @focused="inputValid = false"
+      error-message="پر کردن این قسمت اجباری است"
+      v-model="testInput"
+    />
+    <span>{{ testInput }}</span>
   </div>
 </template>
 
@@ -674,6 +689,9 @@ useHead({
 const inputSelected = ref<boolean>(false);
 const value = ref<CheckboxValueType[]>([]);
 const selectSearch = ref("");
+
+const inputValid = ref<boolean>(true);
+const testInput = ref("");
 
 const options = ref<{ value: string; label: string; disabled?: boolean }[]>([
   {
