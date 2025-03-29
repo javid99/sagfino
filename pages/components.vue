@@ -663,18 +663,22 @@
     </div>
 
     <!-- SECTION Labeled Input -->
-    <LabeledInput
-      label="تیتر"
-      name="test"
-      placeholder="عنوان"
-      type="text"
-      :disabled="false"
-      :is-invalid="inputValid"
-      @focused="inputValid = false"
-      error-message="پر کردن این قسمت اجباری است"
-      v-model="testInput"
-    />
-    <span>{{ testInput }}</span>
+    <div class="flex">
+      <LabeledInput
+        label="تیتر"
+        name="test"
+        placeholder="عنوان"
+        type="text"
+        :disabled="false"
+        :is-invalid="inputValid"
+        @focused="inputValid = false"
+        error-message="پر کردن این قسمت اجباری است"
+        v-model="testInput"
+      />
+    </div>
+
+    <!-- SECTION More filters -->
+    <MoreFilters />
   </div>
 </template>
 
@@ -793,5 +797,35 @@ const clearOptions = () => {
 
 .el-select-dropdown.is-multiple .el-select-dropdown__item.is-selected:after {
   display: none;
+}
+
+.el-radio-button:first-child .el-radio-button__inner {
+  border-left: none !important;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.el-radio-button:last-child .el-radio-button__inner {
+  border-left: 1px solid #d9d9d9;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.el-radio-button__inner {
+  border-color: #d9d9d9;
+  color: #505050;
+  padding: 0.75rem 1.75rem !important;
+}
+
+.el-radio-button__inner:hover {
+  color: #505050;
+  background-color: #EDEDED;
+}
+
+.el-radio-button.is-active .el-radio-button__original-radio:not(:disabled)+.el-radio-button__inner {
+  background-color: #CB1B1B;
+  border-color: #D9D9D9;
+}
+
+.el-dialog__footer {
+  padding: 1.5rem 0;
 }
 </style>
