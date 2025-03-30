@@ -679,10 +679,21 @@
 
     <!-- SECTION More filters -->
     <MoreFilters />
+
+    <!-- SECTION Pagination -->
+    <el-pagination
+      dir="ltr"
+      background
+      layout="prev, pager, next"
+      :prev-icon="h(Icon, { name: 'my-iconsax:arrow-left-2', mode: 'svg' })"
+      :next-icon="h(Icon, { name: 'my-iconsax:arrow-right-3', mode: 'svg' })"
+      :total="1000"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { Icon } from "#components";
 import { Color, Size, Type, Variant } from "@/types/enums/buttonEnums";
 import { inputType } from "@/types/enums/inputEnums";
 import type { CheckboxValueType } from "element-plus";
@@ -817,15 +828,61 @@ const clearOptions = () => {
 
 .el-radio-button__inner:hover {
   color: #505050;
-  background-color: #EDEDED;
+  background-color: #ededed;
 }
 
-.el-radio-button.is-active .el-radio-button__original-radio:not(:disabled)+.el-radio-button__inner {
-  background-color: #CB1B1B;
-  border-color: #D9D9D9;
+.el-radio-button.is-active
+  .el-radio-button__original-radio:not(:disabled)
+  + .el-radio-button__inner {
+  background-color: #cb1b1b;
+  border-color: #d9d9d9;
 }
 
 .el-dialog__footer {
   padding: 1.5rem 0;
+}
+
+.el-pagination.is-background button {
+  background-color: transparent !important;
+  padding: 0;
+  min-width: 1.5rem;
+  height: 1.5rem;
+}
+
+.el-pagination.is-background button:disabled {
+  background-color: transparent !important;
+  padding: 0;
+}
+
+.el-pagination.is-background button .el-icon {
+  font-size: 1.5rem;
+}
+
+.el-pagination.is-background button svg path {
+  fill: #0c0c0c;
+}
+
+.el-pagination.is-background button:disabled svg path {
+  fill: #cbcbcb;
+}
+
+.el-pagination.is-background .btn-prev {
+  margin: 0 0.375rem;
+}
+
+.el-pagination.is-background .el-pager li {
+  margin: 0 0.375rem;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 0.5rem;
+  color: #121212;
+  font-weight: 500;
+}
+
+.el-pagination.is-background .el-pager li.is-active {
+  background-color: #fff;
+  border-color: #2f80ed;
+  box-shadow: 0px 0px 0px 3px rgba(0, 133, 255, 0.19);
+  color: #2f80ed;
 }
 </style>
