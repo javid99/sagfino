@@ -701,6 +701,9 @@
         @update:error="invalid = $event"
       />
     </div>
+
+    <!-- SECTION Main Header -->
+    <MainHeader color="gray" />
   </div>
 </template>
 
