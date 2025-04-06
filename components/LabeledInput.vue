@@ -21,14 +21,15 @@
 </template>
 
 <script lang="ts" setup>
+import { inputType } from "@/types/enums/inputEnums";
 const props = defineProps({
   label: {
     type: String,
     required: true,
   },
   type: {
-    type: String,
-    default: "text",
+    type: String as PropType<inputType>,
+    default: inputType.text,
   },
   placeholder: {
     type: String,
@@ -54,7 +55,7 @@ const props = defineProps({
 const value = defineModel();
 
 const inputClass = ref<string[]>([]);
-const emit = defineEmits(["focused", "submitted"]);
+const emit = defineEmits(["focused"]);
 
 const focusOut = () => {
   if (value.length > 0) {

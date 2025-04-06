@@ -668,7 +668,7 @@
         label="تیتر"
         name="test"
         placeholder="عنوان"
-        type="text"
+        :type="inputType.text"
         :disabled="false"
         :is-invalid="inputValid"
         @focused="inputValid = false"
@@ -689,6 +689,21 @@
       :next-icon="h(Icon, { name: 'my-iconsax:arrow-right-3', mode: 'svg' })"
       :total="1000"
     />
+
+    <!-- SECTION Login inputs -->
+    <div class="flex">
+      <LoginInput
+        placeholder="نام خود را وارد کنید (اختیاری)"
+        label="نام"
+        icon="user"
+        :type="inputType.text"
+        name="name"
+        :error="invalid"
+        error-messages="پر کردن این قسمت اجباری است"
+        @update:error="invalid = $event"
+      />
+      <TestComponent :error="testProp" @focused="test" />
+    </div>
   </div>
 </template>
 
@@ -701,12 +716,20 @@ import type { CheckboxValueType } from "element-plus";
 useHead({
   title: "کامپوننت ها",
 });
+
+const invalid = ref<boolean>(true);
 const inputSelected = ref<boolean>(false);
 const value = ref<CheckboxValueType[]>([]);
-const selectSearch = ref("");
+const selectSearch = ref<string>("");
 
 const inputValid = ref<boolean>(true);
-const testInput = ref("");
+const testInput = ref<string>("");
+
+const testProp = ref<boolean>(true);
+const test = () => {
+  console.log("Test component focused");
+  testProp.value = false;
+};
 
 const options = ref<{ value: string; label: string; disabled?: boolean }[]>([
   {
