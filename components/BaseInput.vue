@@ -67,6 +67,7 @@
 
 <script lang="ts" setup>
 import { inputType } from "@/types/enums/inputEnums";
+import type { PropType } from "vue";
 
 const inputFocus = ref<boolean>(false);
 const inputSelected = ref<boolean>(false);
