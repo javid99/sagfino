@@ -51,7 +51,7 @@ export default {
           default: "#A9791C",
         },
         black: "#0C0C0C",
-        'info-blue': "#2F80ED",
+        "info-blue": "#2F80ED",
       },
       keyframes: {
         "loading-rotate": {

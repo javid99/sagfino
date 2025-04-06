@@ -685,10 +685,22 @@
       dir="ltr"
       background
       layout="prev, pager, next"
-      :prev-icon="h(Icon, { name: 'my-iconsax:arrow-left-2', mode: 'svg' })"
-      :next-icon="h(Icon, { name: 'my-iconsax:arrow-right-3', mode: 'svg' })"
       :total="1000"
     />
+
+    <!-- SECTION Login Inputs -->
+    <div class="flex">
+      <LoginInput
+        placeholder="نام خود را وارد کنید (اختیاری)"
+        label="نام"
+        icon="user"
+        :type="inputType.text"
+        name="name"
+        :error="invalid"
+        error-messages="پر کردن این قسمت اجباری است"
+        @update:error="invalid = $event"
+      />
+    </div>
   </div>
 </template>
 
@@ -701,12 +713,13 @@ import type { CheckboxValueType } from "element-plus";
 useHead({
   title: "کامپوننت ها",
 });
+const invalid = ref<boolean>(true);
 const inputSelected = ref<boolean>(false);
 const value = ref<CheckboxValueType[]>([]);
-const selectSearch = ref("");
+const selectSearch = ref<string>("");
 
 const inputValid = ref<boolean>(true);
-const testInput = ref("");
+const testInput = ref<string>("");
 
 const options = ref<{ value: string; label: string; disabled?: boolean }[]>([
   {
