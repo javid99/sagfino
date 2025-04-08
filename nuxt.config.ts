@@ -27,6 +27,10 @@ export default defineNuxtConfig({
         prefix: "my-iconsax",
         dir: "./assets/icons",
       },
+      {
+        prefix: "my-iconsax-bold",
+        dir: "./assets/icons/bold",
+      },
     ],
   },
   devServer: {

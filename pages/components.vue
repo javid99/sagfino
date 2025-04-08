@@ -705,6 +705,8 @@
     <!-- SECTION Main Header -->
     <MainHeader color="gray" />
   </div>
+  <!-- SECTION Main Footer -->
+  <MainFooter />
 </template>
 
 <script lang="ts" setup>
