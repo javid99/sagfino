@@ -704,6 +704,48 @@
 
     <!-- SECTION Main Header -->
     <MainHeader color="gray" />
+
+    <!-- SECTION Rental House Card -->
+    <div class="flex gap-6">
+      <RentalCard
+        image="/images/home.png"
+        time="2"
+        options="۱۰۰ متر، محدوه ولیعصر، تابان"
+        title="رهن و اجاره آپارتمان"
+        class="basis-1/4"
+        :mortgagePrice="600"
+        :rentPrice="30"
+      />
+      <RentalCard
+        time="2"
+        options="۱۰۰ متر، محدوه ولیعصر، تابان"
+        title="رهن و اجاره آپارتمان"
+        class="basis-1/4"
+        :mortgagePrice="600"
+        :rentPrice="30"
+      />
+    </div>
+
+    <!-- SECTION Saleable House Card -->
+    <div class="flex gap-6">
+      <SaleableCard
+        image="/images/home.png"
+        time="2"
+        options="۱۱۵ متر، بلوار هفت تیر، هفت تیر"
+        details="۲ خوابه . طبقه ۶ . ۳ سال ساخت"
+        title="رهن و اجاره آپارتمان"
+        :price="6"
+        class="basis-1/4"
+      />
+      <SaleableCard
+        time="2"
+        options="۱۱۵ متر، بلوار هفت تیر، هفت تیر"
+        details="۲ خوابه . طبقه ۶ . ۳ سال ساخت"
+        title="رهن و اجاره آپارتمان"
+        :price="6"
+        class="basis-1/4"
+      />
+    </div>
   </div>
   <!-- SECTION Main Footer -->
   <MainFooter />
