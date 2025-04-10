@@ -746,6 +746,25 @@
         class="basis-1/4"
       />
     </div>
+
+    <!-- SECTION Realstate Card -->
+    <div class="flex gap-6">
+      <RealstateCard
+        image="/images/realstate.png"
+        title="مشاور املاک ولیعصر"
+        address="تهران، خیابان ولیعصر"
+        :rating="4"
+        :reviews="12"
+        :posts="2000"
+      />
+      <RealstateCard
+        title="مشاور املاک ولیعصر"
+        address="تهران، خیابان ولیعصر"
+        :rating="4"
+        :reviews="12"
+        :posts="2000"
+      />
+    </div>
   </div>
   <!-- SECTION Main Footer -->
   <MainFooter />
