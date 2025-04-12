@@ -781,6 +781,40 @@
         review="از نحوه برخورد و وقتی که برای مشتری میذارن واقعا راضی هستم. به دلیل مشغله زیاد زمان زیادی نداشتم ولی با برنامه‌ریزی درست به راحتی با کمک مشاورین آژانس توسی خونه دلخواهم رو پیدا کردم."
       />
     </div>
+
+    <!-- SECTION Realator Large Card -->
+    <div class="flex">
+      <RealatorLargeCard
+        image="/images/avatar.jpeg"
+        logo="/images/realstate.png"
+        title="املاک ولیعصر"
+        name="علی پرتو"
+        :rating="4"
+        :posts="500"
+      />
+    </div>
+
+    <!-- SECTION Realator Medium Card -->
+    <div class="flex gap-6">
+      <RealatorMediumCard
+        image="/images/avatar2.jpeg"
+        name="علی پرتو"
+        title="املاک توسی"
+        :rating="4"
+        :posts="400"
+      />
+      <RealatorMediumCard
+        name="علی پرتو"
+        title="املاک توسی"
+        :rating="4"
+        :posts="400"
+      />
+    </div>
+
+    <!-- SECTION Realator Small Card -->
+    <div class="flex">
+      <RealatorSmallCard />
+    </div>
   </div>
   <!-- SECTION Main Footer -->
   <MainFooter />
