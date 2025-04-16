@@ -815,6 +815,25 @@
     <div class="flex">
       <RealatorSmallCard />
     </div>
+
+    <!-- SECTION Statistic Card -->
+    <div class="flex">
+      <StatisticCard
+        class="basis-1/4"
+        image="/images/villa.jpeg"
+        category="آپارتمان و برج"
+        title="۲۸.۹۰۰"
+      />
+    </div>
+
+    <!-- SECTION News Card -->
+    <div class="flex">
+      <NewsCard
+        class="basis-1/4"
+        title="رکود بازار مسکن؛فروشندگان در انتظار خریداران و خریداران در انتظار شکست نرخ فروشندگان"
+        image="/images/villa.jpeg"
+      />
+    </div>
   </div>
   <!-- SECTION Main Footer -->
   <MainFooter />
